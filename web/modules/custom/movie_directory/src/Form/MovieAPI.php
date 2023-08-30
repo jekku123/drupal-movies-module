@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\movie_directory\Form;
 
 use Drupal\Core\Form\FormBase;
@@ -9,18 +11,12 @@ class MovieAPI extends FormBase
 {
     const MOVIE_API_CONFIG_PAGE = 'movie_api_config_page:values';
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getFormId()
+    public function getFormId(): string
     {
         return 'movie_api_config_page';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(array $form, FormStateInterface $form_state)
+    public function buildForm(array $form, FormStateInterface $form_state): array
     {
         $values = \Drupal::state()->get(self::MOVIE_API_CONFIG_PAGE);
         $form = [];
@@ -51,10 +47,8 @@ class MovieAPI extends FormBase
         return $form;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function submitForm(array &$form, FormStateInterface $form_state)
+
+    public function submitForm(array &$form, FormStateInterface $form_state): void
     {
         $submitted_values = $form_state->getValues();
         \Drupal::state()->set(self::MOVIE_API_CONFIG_PAGE, $submitted_values);

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\movie_directory;
 
 use Drupal\Core\Http\ClientFactory;
@@ -30,7 +32,7 @@ class MovieApiConnector
         );
     }
 
-    public function discoverMovies()
+    public function discoverMovies(): mixed
     {
         $data = [];
         $endpoint = '3/discover/movie';
@@ -48,7 +50,7 @@ class MovieApiConnector
         return $data;
     }
 
-    public function getImageUrl($image_path)
+    public function getImageUrl(string $image_path): string
     {
         return 'https://image.tmdb.org/t/p/w500' . $image_path;
     }

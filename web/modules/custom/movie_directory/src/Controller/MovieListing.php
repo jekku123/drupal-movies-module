@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\movie_directory\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
@@ -13,7 +15,7 @@ class MovieListing extends ControllerBase
     {
     }
 
-    public function view()
+    public function view(): array
     {
         $content = [];
         $content['movies'] = $this->createMovieCards();
@@ -29,12 +31,12 @@ class MovieListing extends ControllerBase
         ];
     }
 
-    public static function create(DependencyInjectionContainerInterface $container)
+    public static function create(DependencyInjectionContainerInterface $container): self
     {
         return new static($container->get('movie_directory.api_connector'));
     }
 
-    private function listMovies()
+    private function listMovies(): array
     {
         $movie_list = $this->movieApiConnector->discoverMovies();
         if (!empty($movie_list->results)) {
@@ -43,7 +45,7 @@ class MovieListing extends ControllerBase
         return [];
     }
 
-    private function createMovieCards()
+    private function createMovieCards(): array
     {
         $movieCards = [];
 
