@@ -1,0 +1,28 @@
+.movie-listing {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.movie-card-wrapper {
+  width: 300px;
+}
+
+.movie-card__image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.movie-card__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+}
+
+.movie-card__description {
+  font-size: 1rem;
+  text-align: center;
+  color: #000;
+}

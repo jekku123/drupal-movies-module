@@ -20,7 +20,12 @@ class MovieListing extends ControllerBase
 
         return [
             '#theme' => 'movie-listing',
-            '#content' => $content
+            '#content' => $content,
+            '#attached' => [
+                'library' => [
+                    'movie_directory/movie-directory-styling'
+                ]
+            ],
         ];
     }
 
