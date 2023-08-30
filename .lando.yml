@@ -1,0 +1,8 @@
+name: movies-site
+recipe: drupal10
+config:
+  webroot: web
+
+services:
+  myservice:
+    type: phpmyadmin
