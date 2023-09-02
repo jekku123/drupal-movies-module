@@ -1,7 +1,7 @@
 movie_directory.api_config_page:
   path: '/admin/config/movie-api'
   defaults:
-    _form: '\Drupal\movie_directory\Form\MovieApiConnector'
+    _form: '\Drupal\movie_directory\Form\MovieAPI'
     _title: 'Movie API Configuration'
 
   requirements:
