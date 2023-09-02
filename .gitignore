@@ -9,11 +9,11 @@
 /libraries/
 
 # Local config
-/sites/*/settings.local.php
-/sites/default/drush.local.yml
+web/sites/*/settings.local.php
+web/sites/default/drush.local.yml
 
 # Ignore Drupals file directory
-/sites/*/files/
+web/sites/files/
 
 # Ignore SimpleTest multi-site environment
 /sites/simpletest
