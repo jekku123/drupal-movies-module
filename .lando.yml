@@ -1,4 +1,4 @@
-name: movies-site
+name: myapp
 recipe: drupal10
 config:
   webroot: web
@@ -7,13 +7,10 @@ services:
   myservice:
     type: phpmyadmin
 
-  appserver:
-    build_as_root:
-      - composer install
-    run:
-      - drush site-install --db-url=mysql://drupal10:drupal10@database/drupal10 --account-pass=admin -y
-  
-  database:
-    portforward: true
+appserver:
+  run:
+    - composer install
+    - drush site-install --db-url=mysql://drupal10:drupal10@database/drupal10 --account-pass=admin -y
 
-
+database:
+  portforward: true
