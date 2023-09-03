@@ -7,11 +7,13 @@ services:
   myservice:
     type: phpmyadmin
 
-build_as_root:
-  - lando composer install
-
-build:
-  - lando drush site-install --db-url=mysql://drupal10:drupal10@database/drupal10 --account-pass=admin -y
-
+  appserver:
+    build_as_root:
+      - composer install
+    build:
+      - drush site-install --db-url=mysql://drupal10:drupal10@database/drupal10 --account-pass=admin -y
+  
+  database:
+    portforward: true
 
 
